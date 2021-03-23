@@ -1,0 +1,53 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+nav{
+    height: 80px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #c1c1c1;
+}
+nav a{
+    text-decoration: none;
+    font-size: 16px;
+    color: tomato;
+    font-weight: bold;
+    padding: 10px;
+}
+
+nav a:hover{
+    border: 1px solid tomato;
+}
+.brand{
+    float: left;
+}
+ul{
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+
+ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+}
+
+form{
+    width: 50%;
+    margin: 10px auto;
+    padding-bottom: 20px;
+    text-align: center;
+    border: 1px solid green;
+}
+
+.btn{
+    background-color: tomato;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 50px;
+    cursor: pointer;
+}

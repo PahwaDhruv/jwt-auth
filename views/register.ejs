@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+<body>
+    <%- include('./partials/nav.ejs') %>
+    <form>
+        <h1>Register</h1>
+        <h2 id="success"></h2>
+        <div class="form-control">
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" placeholder="Enter email" required>
+            <p class="error" id="emailError"></p>
+        </div>
+        <div class="form-control">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" placeholder="Enter password" required>
+            <p class="error" id="passwordError"></p>
+        </div>
+        <button class="btn">Register</button>
+    </form>
+    <script>
+        const form = document.querySelector('form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = form.email.value;
+            const password = form.password.value;
+            document.getElementById('emailError').innerHTML = '';
+            document.getElementById('passwordError').innerHTML = '';
+            try{
+                const res = await fetch('/register', {
+                    method: 'POST',
+                    body : JSON.stringify({email, password}),
+                    headers : {'Content-Type' : 'application/json'}
+                });
+                const data = await res.json();
+                console.log(data);
+                if(data.errors){
+                    document.getElementById('emailError').innerHTML = data.errors.email;
+                    document.getElementById('passwordError').innerHTML = data.errors.password;
+                }else{
+                    location.assign('/');
+                }
+            }
+            catch(err){
+                console.log(err);
+            }
+        })
+    </script>
+</body>
+</html>

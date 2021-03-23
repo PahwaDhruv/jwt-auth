@@ -1,0 +1,17 @@
+<nav>
+    <div class="brand">
+        <a href="/">JWT Auth</a>
+    </div>
+    <ul>
+        <% if(user) {%>
+            <li>Welcome, <%= user.email %></li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blogs">Blogs</a></li>
+            <li><a href="/logout">Logout</a></li>
+        <% } else { %>
+            <li><a href="/register">Register</a></li>
+            <li><a href="/login">Login</a></li>
+        <% } %>
+        
+    </ul>
+</nav>
